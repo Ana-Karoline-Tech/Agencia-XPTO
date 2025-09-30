@@ -36,6 +36,10 @@
     width: 100px;
 }
 
+.logo .titulo:hover {
+    color: #1ED760;
+}
+
 .rodape .copyright {
     text-align: center;
     margin-top: 70px;
