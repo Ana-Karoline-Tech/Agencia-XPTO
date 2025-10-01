@@ -1,32 +1,42 @@
-const imagens = document.querySelectorAll('.imagem-painel')
-const setaVoltar = document.getElementById('btn-voltar')
-const setaAvancar = document.getElementById('btn-avancar')
-let imagemAtual = 0
+/*
+    Quando clicar na seta temos que esconder todas as imagens e mostrar a próxima imagem.
 
-function esconderImagens() {
-    imagens.forEach(imagem => {
-        imagem.classList.remove('mostrar')
-    })
-}
+        A imagem atual começa em 0, pq é a primeira imagem da lista.
+        A próxima imagem é o atual + 1.
+        Quando chegar na última imagem, a próxima é a primeira (0).
 
-function mostrarImagem(){    
-    imagens[imagemAtual].classList.add('mostrar')
-}
+        Assim que for clicado em avançar eu preciso adicionar mais 1 ao contador de imagens pra saber que agora vou mostrar a segunda imagem.
 
-setaAvancar.addEventListener('click', function () {
-    if(imagemAtual !== imagens.length - 1) {
-        imagemAtual++        
-    }
+        Esconder todas as imagens.
+            Pegar todas as imagens usando o DOM e remover a classe mostrar.
 
-    esconderImagens()
-    mostrarImagem()
-})
+        Mostrar a próxima imagem 
+            Pegar todas as imagens, descobrir qual é a próxima imagem e colocar a classe mostrar nela.
 
-setaVoltar.addEventListener('click', function () {
-    if (imagemAtual !== 0) {
-        imagemAtual--
-    }
+*/
 
-    esconderImagens()
-    mostrarImagem()
-})
+const imagensPainel = document.querySelectorAll('.imagem-painel');
+const setaAvancar = document.getElementById('btn-avancar');
+const setaVoltar = document.getElementById('btn-voltar');
+let imagemAtual = 0;
+
+
+//  Quando clicar na seta temos que esconder todas as imagens e mostrar a próxima imagem.
+setaAvancar.addEventListener('click', function() {
+
+    // A imagem atual começa em 0, pq é a primeira imagem da lista.
+    //Assim que for clicado em avançar eu preciso adicionar mais 1 ao contador de imagens pra saber que agora vou mostrar a segunda imagem.
+
+    imagemAtual++;
+    
+    // Esconder todas as imagens.
+    //        Pegar todas as imagens usando o DOM e remover a classe mostrar.
+    imagensPainel.forEach(imagem => {
+        imagem.classList.remove('mostrar');
+    });
+
+    //Mostrar a próxima imagem 
+    //        Pegar todas as imagens, descobrir qual é a próxima imagem e colocar a classe mostrar nela.
+    
+    console.log(imagensPainel[0]);
+});
